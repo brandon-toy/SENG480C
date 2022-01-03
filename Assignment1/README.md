@@ -24,56 +24,52 @@ This is an **individual assignment** for both undergraduatesand graduate student
 ● [http://www.hybrid-ecologies.org/projects](http://www.hybrid-ecologies.org/projects)
 
 ## Requirements:
-a) The assignment requires you to use:
+- The assignment requires you to use:
 
-- Electronics
+  - Electronics
 
-- Physical materials
+  - Physical materials
 
-- Programming
+  - Programming
 
-b) Think about the overall design - it should not simply be some electronics on a breadboard or
+- Think about the overall design - it should not simply be some electronics on a breadboard or
 paper pasted on electronics for the sake of using physical materials
 
-c) The system must be provocative or push our thinking forward. Remember your system design
+- The system must be provocative or push our thinking forward. Remember your system design
 does not have to be applicable for today, it can be based on a future use scenario. However, the
 design must still be meaningful and critically considered.
 
-d) Carefully select the scope of what you want to create. For example, if your vision is to reimagine
+- Carefully select the scope of what you want to create. For example, if your vision is to reimagine
 how someone can program, you do not have to create an exhaustive SDK for this assignment.
 Instead, demonstrating one very specific example such as how someone creates a for-loop is
 enough for this assignment. Also, remember the input/output mechanism has to work, so think
 about how much time you will need to implement something.
 
-e) You can use any material available on the Internet (e.g., existing software code) but you must
+- You can use any material available on the Internet (e.g., existing software code) but you must
 cite the source and not falsely claim it as your own. Do not simply replicate an example from
-
-
-```
 Instructables or elsewhere. You must make at least some changes and articulate the changes
 made.
-```
+
 ## Deliverables:
 
-```
-a) Project Document: must include the following information:
-i) What is the aim or purpose of the input/output you created?
-ii) What is the motivation for creating the input/output you designed? This should be
+
+Project Document: must include the following information:
+- What is the aim or purpose of the input/output you created?
+- What is the motivation for creating the input/output you designed? This should be
 explained from an end-user perspective e.g., help people to <do something>
-iii) Explain the system in full detail. Write the details at a level that someone else can
+- Explain the system in full detail. Write the details at a level that someone else can
 replicate the project. For example, explain what materials and tools you used for
 creating your project. List the steps someone would need to follow to make the project
 work. Use photos to supplement your textual instructions. Provide a link to the software
 code and instructions for using the code.
-```
-```
-The textual description must not exceed 2500 words. Images and references are not
+
+
+NOTE: The textual description must not exceed 2500 words. Images and references are not
 included in the word count. You must edit and proofread your document with a view to
 brevity and clarity.
-```
-```
-b) Video : submit a 2-3 minute video demonstrating yourprototype. Use voice-over or subtitles to
-explain what is happening in the video. The video must include a title that lists the project name,
+
+### Video : submit a 2-3 minute video demonstrating your prototype. 
+Use voice-over or subtitles to explain what is happening in the video. The video must include a title that lists the project name,
 student name and V number, and must be encoded as MP4. If your TA and I cannot play the
 video, you will be asked to reproduce the video.
 ```
