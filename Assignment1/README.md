@@ -1,15 +1,15 @@
 ### Assignment 1: Alternative Inputs or Outputs
 
-The goal of this assignmentistohelpstudentsrethinkhowpeoplecanprovideinputstocomputersand
-receiveoutputsfromcomputersinwaysthataredifferentfromthestandarddesktopparadigmwherein
+The goal of this assignment is to help students rethink how people can provide inputs to computers and
+receive outputs from computers in ways that are different from the standard desktop paradigm where in
 people use a mouse, keyboards and computer displays.
 
-Here studentsare required tocreate a provocativesystem usinghardware,softwareandphysical
-materialstoreimaginehowanexistingexampleofinputandoutputcanbechanged.Forexample,can
-someonewritesoftwarecodeusinganinterfacethatisnotdesktop-based?Orcanamusiciancreate
+Here students are required tocreate a provocative system using hardware, software and physical
+material store imagine how an existing example of input and output can b echanged. For example,can
+someone write software code using an interface that is not desktop-based? Or can a musician create
 music without using the standard musical instrument?
 
-Studentsareexpectedtounderstandandapplyconceptsfromtangibleuserinterfaceliteraturetocreat
+Students are expected to understand and apply concepts from tangible user-interface literature to create
 such input/output interfaces.
 
 This is an **individual assignment** for both undergraduatesand graduate students.
