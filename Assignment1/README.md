@@ -1,4 +1,4 @@
-### Assignment 1: Alternative Inputs or Outputs
+# Assignment 1: Alternative Inputs or Outputs
 
 The goal of this assignment is to help students rethink how people can provide inputs to computers and
 receive outputs from computers in ways that are different from the standard desktop paradigm where in
@@ -14,13 +14,13 @@ such input/output interfaces.
 
 This is an **individual assignment** for both undergraduatesand graduate students.
 
-**Inspirations** :
+## Inspirations:
 ● https://tangible.media.mit.edu/projects/
 ● https://www2.ocadu.ca/research/socialbody/project/diy-superhero-communicator-cuffs
 ● https://www.instructables.com/How-to-Make-a-Porcupine-Vest/
 ● [http://www.hybrid-ecologies.org/projects](http://www.hybrid-ecologies.org/projects)
 
-**Requirements:**
+## Requirements:
 a) The assignment requires you to use:
 i) Electronics
 ii) Physical materials
@@ -43,7 +43,7 @@ cite the source and not falsely claim it as your own. Do not simply replicate an
 Instructables or elsewhere. You must make at least some changes and articulate the changes
 made.
 ```
-**Deliverables:**
+## Deliverables:
 
 ```
 a) Project Document: must include the following information:
@@ -67,13 +67,13 @@ explain what is happening in the video. The video must include a title that list
 student name and V number, and must be encoded as MP4. If your TA and I cannot play the
 video, you will be asked to reproduce the video.
 ```
-**What and Where to Upload:**
+## What and Where to Upload:
 
 ```
 a) Project website - Post all of the above-listed informationon your project website
 b) Brightspaces - Upload a PDF of the project documentand the MP4 video file.
 ```
-**How to create a project website:**
+## How to create a project website:
 
 ```
 a) Create a project website (https://onlineacademiccommunity.uvic.ca/what-is-the-oac/). You will
@@ -86,7 +86,7 @@ e) Add your team members and your TA to the website as administrators.
 f) If you have questions, contact for help:https://www.uvic.ca/systems/services/contact/index.php
 ```
 
-**Class Show-and-Tell:**
+## Class Show-and-Tell:
 
 ```
 a) Prepare for amaximum 3-minuteshow-and-tell for yourassignment. Thiswill be a live demobut
