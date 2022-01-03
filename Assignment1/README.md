@@ -16,25 +16,35 @@ This is an **individual assignment** for both undergraduatesand graduate student
 
 ## Inspirations:
 ● https://tangible.media.mit.edu/projects/
+
 ● https://www2.ocadu.ca/research/socialbody/project/diy-superhero-communicator-cuffs
+
 ● https://www.instructables.com/How-to-Make-a-Porcupine-Vest/
+
 ● [http://www.hybrid-ecologies.org/projects](http://www.hybrid-ecologies.org/projects)
 
 ## Requirements:
 a) The assignment requires you to use:
-i) Electronics
-ii) Physical materials
-iii) Programming
+
+- Electronics
+
+- Physical materials
+
+- Programming
+
 b) Think about the overall design - it should not simply be some electronics on a breadboard or
 paper pasted on electronics for the sake of using physical materials
+
 c) The system must be provocative or push our thinking forward. Remember your system design
 does not have to be applicable for today, it can be based on a future use scenario. However, the
 design must still be meaningful and critically considered.
+
 d) Carefully select the scope of what you want to create. For example, if your vision is to reimagine
 how someone can program, you do not have to create an exhaustive SDK for this assignment.
 Instead, demonstrating one very specific example such as how someone creates a for-loop is
 enough for this assignment. Also, remember the input/output mechanism has to work, so think
 about how much time you will need to implement something.
+
 e) You can use any material available on the Internet (e.g., existing software code) but you must
 cite the source and not falsely claim it as your own. Do not simply replicate an example from
 
