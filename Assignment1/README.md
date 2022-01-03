@@ -85,16 +85,21 @@ b) Brightspaces - Upload a PDF of the project documentand the MP4 video file.
 ```
 ## How to create a project website:
 
-```
-a) Create a project website (https://onlineacademiccommunity.uvic.ca/what-is-the-oac/). You will
+
+a) Create a [project website](https://onlineacademiccommunity.uvic.ca/what-is-the-oac/). You will
 use the website to document your assignments throughout the term.
+
 b) Give the site a descriptive name so we can identify you uniquely. Do not use a generic course
 name title
+
 c) Select the “E-portfolio” option for creating your website
+
 d) Set Privacy to: Visible only to registered users of this network
+
 e) Add your team members and your TA to the website as administrators.
+
 f) If you have questions, contact for help:https://www.uvic.ca/systems/services/contact/index.php
-```
+
 
 ## Class Show-and-Tell:
 
