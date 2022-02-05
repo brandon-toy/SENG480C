@@ -8,6 +8,10 @@ This hand gesture controller, measured using ultrasonic, is an alternative input
   - [Motivation](#motivation)
   - [Design](#design)
     - [Materials used](#materials-used)
+    - [How the Ultrasonic Sensor works](#how-the-ultrasonic-sensor-works)
+      - [Formula for distance in cm](#formula-for-distance-in-cm)
+    - [Simplifying Calculating the Distance](#simplifying-calculating-the-distance)
+  - [Future Design](#future-design)
 
 ## Problem
 
@@ -27,9 +31,39 @@ Some people present without the ability to switch slides because they unfortunat
 
 ## Design
 
-The initial design is simple and uses one ultrasonic sensor and senses if an object is `< 10cm` away then it will advance the next slide.
+The initial design is simple and uses one ultrasonic sensor and senses if an object is `< 10cm` away then it will advance the next slide. The prototype has only simple function of advancing the next slide.
 
 ### Materials used
 
 - x1 Arduino Uno board
 - x1 Ultrasonic Distance Sensor
+
+![Simple Design Ultrasonic Sensor](https://user-images.githubusercontent.com/46540226/152660008-accd5499-56c4-4038-83a4-453b04083e85.png)
+
+### How the Ultrasonic Sensor works
+
+According to the [HR-SR04 Ultrasonic Sensor Manual](https://web.eece.maine.edu/~zhu/book/lab/HC-SR04%20User%20Manual.pdf), the Ultrasonic Sensor measures distance by the `TRIG` of the sensor recieves a pulse of a high (5V) for at least 10us. The sensor will then trasmit an 8 cycle of ultrasonic burst at 40kHz and wait for a reflected ultrasonic burst. After detecting ultrasonic, it will then set the `ECHO` pin to high (5V) and delay for a period (width) with proprotion to distance.
+
+![Ultrasonic Diagram](https://user-images.githubusercontent.com/46540226/152660257-e8864a40-2a83-4e34-92e3-0375a3bc354b.png)
+
+The Ultrasonic sensor recieves an ECHO and in order to interpret the time as distance we need to calculate the distance by dividing the width of `ECHO` pulse (in uS microseconds) by `/58` to get the distance in CM
+
+#### Formula for distance in cm
+
+$Distance = Width of Echo Pulse/58$
+
+### Simplifying Calculating the Distance
+
+Through research, the problem of calculating the distance through the input of the ultrasound sensor has already been solved. I used a [library](https://github.com/ErickSimoes/Ultrasonic) to calculate the distance. Thank you to `Erick Simoes` for making his library open source and free to use.
+
+The library lets you pass in the TRIG and ECHO pins into a type `Ultrasonic` as parameters and lets you easily have access to the distance in a few lines of code.
+
+```C++
+Ultrasonic ultrasonic(TRIG_PIN, ECHO_PIN);
+ultrasonic.read(); // get distance
+```
+
+## Future Design
+
+The use of two Ultrasonic sensors would enable back and forth mechanisms using a `Sliding motion`
+By moving your hand left to right it would advance to the next slide by the Ultrasonic sensor detecting close motion from the left sensor and then also pick it up through the right sensor. This would enable also swiping from right to left in order to progress to the previous slide.
