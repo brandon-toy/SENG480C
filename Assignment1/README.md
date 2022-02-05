@@ -14,16 +14,18 @@ such input/output interfaces.
 
 This is an **individual assignment** for both undergraduatesand graduate students.
 
-## Inspirations:
-● https://tangible.media.mit.edu/projects/
+## Inspirations
 
-● https://www2.ocadu.ca/research/socialbody/project/diy-superhero-communicator-cuffs
+● <https://tangible.media.mit.edu/projects/>
 
-● https://www.instructables.com/How-to-Make-a-Porcupine-Vest/
+● <https://www2.ocadu.ca/research/socialbody/project/diy-superhero-communicator-cuffs>
+
+● <https://www.instructables.com/How-to-Make-a-Porcupine-Vest/>
 
 ● [http://www.hybrid-ecologies.org/projects](http://www.hybrid-ecologies.org/projects)
 
-## Requirements:
+## Requirements
+
 - The assignment requires you to use:
 
   - Electronics
@@ -50,10 +52,10 @@ cite the source and not falsely claim it as your own. Do not simply replicate an
 Instructables or elsewhere. You must make at least some changes and articulate the changes
 made.
 
-## Deliverables:
-
+## Deliverables
 
 Project Document: must include the following information:
+
 - What is the aim or purpose of the input/output you created?
 - What is the motivation for creating the input/output you designed? This should be
 explained from an end-user perspective e.g., help people to <do something>
@@ -63,21 +65,24 @@ creating your project. List the steps someone would need to follow to make the p
 work. Use photos to supplement your textual instructions. Provide a link to the software
 code and instructions for using the code.
 
-
 NOTE: The textual description must not exceed 2500 words. Images and references are not
 included in the word count. You must edit and proofread your document with a view to
 brevity and clarity.
 
-### Video : submit a 2-3 minute video demonstrating your prototype. 
+### Video : submit a 2-3 minute video demonstrating your prototype
+
 Use voice-over or subtitles to explain what is happening in the video. The video must include a title that lists the project name,
 student name and V number, and must be encoded as MP4. If your TA and I cannot play the
 video, you will be asked to reproduce the video.
+
 ```
 ## What and Where to Upload:
 
 ```
+
 a) Project website - Post all of the above-listed informationon your project website
 b) Brightspaces - Upload a PDF of the project documentand the MP4 video file.
+
 ```
 ## How to create a project website:
 
@@ -100,6 +105,7 @@ f) If you have questions, contact for help:https://www.uvic.ca/systems/services/
 ## Class Show-and-Tell:
 
 ```
+
 a) Prepare for amaximum 3-minuteshow-and-tell for yourassignment. Thiswill be a live demobut
 keep the video as a backup in case the demo does not work. Also, prepare to answer 1-
 questions from the class and discuss your project. Every student is expected to participate in the
