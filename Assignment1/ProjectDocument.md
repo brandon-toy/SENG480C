@@ -60,7 +60,9 @@ The Ultrasonic sensor receives an ECHO and to interpret the time as the distance
 
 #### Formula for distance in cm
 
-$Distance = Width of Echo Pulse/58 = Time/58$
+```
+Distance = Width of Echo Pulse/58 = Time/58 
+```
 
 ### Simplifying Calculating the Distance
 
