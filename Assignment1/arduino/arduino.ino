@@ -15,8 +15,7 @@ void loop() {
   int distance = ultrasonic.read();
   Serial.println(distance);
   if(distance < 50) {
-    // advance next slide
-    Serial.println("Next");
+    Serial.println("Pause");
   }
   delay(100);
 }

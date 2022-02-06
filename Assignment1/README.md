@@ -143,8 +143,7 @@ Inputting code to the Arduino is how we let manipulate and calculate the distanc
       int distance = ultrasonic.read();
       Serial.print(distance);
       if(distance < 10) {
-        // 
-        Serial.println('Next');
+        Serial.println('Pause');
       }
     }
    ```
@@ -178,8 +177,8 @@ Using the code and trying to manipulate our laptop is difficult, so an easier wa
     while True:
         value = str(write_read(1))
         print(value)
-        if 'Next' in value:
-            pyautogui.hotkey('right')
+        if 'Pause' in value:
+            pyautogui.hotkey('spacebar')
    ```
 
 > NOTE: On line 3 `arduino = serial.Serial(PORT, 9600)` replace `PORT` with a your Arduino PORT. To find your Arduino PORT open the Arudino IDE and plug your board in and your PORT should be located at the bottom right.

@@ -7,5 +7,5 @@ def write_read(x):
 while True:
     value = str(write_read(1))
     print(value)
-    if 'Next' in value:
+    if 'Pause' in value:
         pyautogui.hotkey('right')
