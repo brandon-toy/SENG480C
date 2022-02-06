@@ -48,6 +48,7 @@ The initial design is simple and uses one ultrasonic sensor and senses if an obj
 - x1 Arduino Uno board
 - x1 Ultrasonic Distance Sensor
 - x4 wires to connect the Arduino to the Ultrasonic Sensor
+- Tape
 
 ![Simple Design Ultrasonic Sensor](https://user-images.githubusercontent.com/46540226/152660008-accd5499-56c4-4038-83a4-453b04083e85.png)
 
