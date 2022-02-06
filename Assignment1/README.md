@@ -1,115 +1,209 @@
-# Assignment 1: Alternative Inputs or Outputs
+# Hand Gesture Presentation Controller
 
-The goal of this assignment is to help students rethink how people can provide inputs to computers and
-receive outputs from computers in ways that are different from the standard desktop paradigm where in
-people use a mouse, keyboards and computer displays.
+This hand gesture controller, measured using ultrasonic, is an alternative input gesture that helps keep the presenter inflow and smoothly transition from slide to slide without having to look down at a keyboard.
 
-Here students are required tocreate a provocative system using hardware, software and physical
-material store imagine how an existing example of input and output can b echanged. For example,can
-someone write software code using an interface that is not desktop-based? Or can a musician create
-music without using the standard musical instrument?
+- [Hand Gesture Presentation Controller](#hand-gesture-presentation-controller)
+  - [Problem](#problem)
+    - [Flow State](#flow-state)
+  - [Motivation](#motivation)
+  - [Design](#design)
+    - [Materials used](#materials-used)
+    - [How the Ultrasonic Sensor works](#how-the-ultrasonic-sensor-works)
+      - [Formula for distance in cm](#formula-for-distance-in-cm)
+    - [Simplifying Calculating the Distance](#simplifying-calculating-the-distance)
+  - [Systems Design](#systems-design)
+  - [Steps to Recreate](#steps-to-recreate)
+    - [Installing Software Programs](#installing-software-programs)
+    - [Connecting the Arduino to the Ultrasonic Sensor](#connecting-the-arduino-to-the-ultrasonic-sensor)
+    - [Adding Functionality and Code to the UltraSonic Sensor](#adding-functionality-and-code-to-the-ultrasonic-sensor)
+      - [Creating a New file in Arduino IDE](#creating-a-new-file-in-arduino-ide)
+      - [Adding an External Library to the Arduino IDE](#adding-an-external-library-to-the-arduino-ide)
+      - [Interpreting `Serial.print()` to the machine](#interpreting-serialprint-to-the-machine)
+      - [Creating the Python Code](#creating-the-python-code)
+    - [Running Everything Together](#running-everything-together)
+  - [To The Future And Beyond](#to-the-future-and-beyond)
 
-Students are expected to understand and apply concepts from tangible user-interface literature to create
-such input/output interfaces.
+## Problem
 
-This is an **individual assignment** for both undergraduatesand graduate students.
+The problem the `Hand Gesture Presentation Controller` is trying to solve is to help aid in the struggles of public speaking and help keep presentations flowing. Public speaking is well known to be one of the biggest fears for people throughout the world. Many presenters use the keyboard to advance through slides and using the keyboard can break the flow of a presenter. Though the clicker solves the problem of breaking the immersive flow state of the presenter, when people present, they often do not have the clicker, especially students in many universities. People end up using their keyboard and fumble on the keys for a split second; thus breaking their concentration.
 
-## Inspirations
+### Flow State
 
-● <https://tangible.media.mit.edu/projects/>
+The flow state is a "mental state in which a person performing some activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity." [(Wikipedia)](https://en.wikipedia.org/wiki/Flow_(psychology)) The flow state can happen through activities such as work, writing an exam, and presenting. If you would like to learn more about the flow state, I would recommend reading [Flow: The Psychology of Optimal Experience](https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202) on the Psychology of Flow.
 
-● <https://www2.ocadu.ca/research/socialbody/project/diy-superhero-communicator-cuffs>
+## Motivation
 
-● <https://www.instructables.com/How-to-Make-a-Porcupine-Vest/>
+The motivation for this project was experiencing the challenges of presenting myself in front of an audience. I find it scary to present in front of an audience, and having everything "work" as intended is vital to a successful presentation to keep my focus.
 
-● [http://www.hybrid-ecologies.org/projects](http://www.hybrid-ecologies.org/projects)
+Throughout, my degree and having to do multiple presentations, I have witnessed many people stumble and break concentration over even the littlest things that can interrupt their presentations. The act of looking down at the keyboard and looking for the arrow keys (instead of using the spacebar) breaks my concentration and makes me lose my train of thought for a couple of seconds.
 
-## Requirements
+Some people present without the ability to switch slides because they, unfortunately, do not have fingers. Seeing some people without fingers presenting and struggling to switch slides, broke my heart and being able to make an alternative and helping them overcome one of the most feared obstacles in life is also a motivation behind doing this project.
 
-- The assignment requires you to use:
+## Design
 
-  - Electronics
+The initial design is simple and uses one ultrasonic sensor and senses if an object is `< 10cm` away then it will advance the next slide. The prototype has the only simple function of advancing the next slide.
 
-  - Physical materials
+### Materials used
 
-  - Programming
+- x1 Arduino Uno board
+- x1 Ultrasonic Distance Sensor
+- x4 wires to connect the Arduino to the Ultrasonic Sensor
 
-- Think about the overall design - it should not simply be some electronics on a breadboard or
-paper pasted on electronics for the sake of using physical materials
+![Simple Design Ultrasonic Sensor](https://user-images.githubusercontent.com/46540226/152660008-accd5499-56c4-4038-83a4-453b04083e85.png)
 
-- The system must be provocative or push our thinking forward. Remember your system design
-does not have to be applicable for today, it can be based on a future use scenario. However, the
-design must still be meaningful and critically considered.
+### How the Ultrasonic Sensor works
 
-- Carefully select the scope of what you want to create. For example, if your vision is to reimagine
-how someone can program, you do not have to create an exhaustive SDK for this assignment.
-Instead, demonstrating one very specific example such as how someone creates a for-loop is
-enough for this assignment. Also, remember the input/output mechanism has to work, so think
-about how much time you will need to implement something.
+According to the [HR-SR04 Ultrasonic Sensor Manual](https://web.eece.maine.edu/~zhu/book/lab/HC-SR04%20User%20Manual.pdf), the Ultrasonic Sensor measures distance by the `TRIG` of the sensor receiving a pulse of a high (5V) for at least 10us. The sensor will then transmit an 8 cycle ultrasonic burst at 40kHz and wait for a reflected ultrasonic burst. After detecting ultrasonic, it will then set the `ECHO` pin to high (5V) and delay for a period (width) with proportion to distance.
 
-- You can use any material available on the Internet (e.g., existing software code) but you must
-cite the source and not falsely claim it as your own. Do not simply replicate an example from
-Instructables or elsewhere. You must make at least some changes and articulate the changes
-made.
+![Ultrasonic Diagram](https://user-images.githubusercontent.com/46540226/152660257-e8864a40-2a83-4e34-92e3-0375a3bc354b.png)
 
-## Deliverables
+The Ultrasonic sensor receives an ECHO and to interpret the time as the distance we need to calculate the distance by dividing the width of the `ECHO` pulse (in uS microseconds) by `/58` to get the distance in CM
 
-Project Document: must include the following information:
-
-- What is the aim or purpose of the input/output you created?
-- What is the motivation for creating the input/output you designed? This should be
-explained from an end-user perspective e.g., help people to <do something>
-- Explain the system in full detail. Write the details at a level that someone else can
-replicate the project. For example, explain what materials and tools you used for
-creating your project. List the steps someone would need to follow to make the project
-work. Use photos to supplement your textual instructions. Provide a link to the software
-code and instructions for using the code.
-
-NOTE: The textual description must not exceed 2500 words. Images and references are not
-included in the word count. You must edit and proofread your document with a view to
-brevity and clarity.
-
-### Video : submit a 2-3 minute video demonstrating your prototype
-
-Use voice-over or subtitles to explain what is happening in the video. The video must include a title that lists the project name,
-student name and V number, and must be encoded as MP4. If your TA and I cannot play the
-video, you will be asked to reproduce the video.
+#### Formula for distance in cm
 
 ```
-## What and Where to Upload:
-
+Distance = Width of Echo Pulse/58 = Time/58 
 ```
 
-a) Project website - Post all of the above-listed informationon your project website
-b) Brightspaces - Upload a PDF of the project documentand the MP4 video file.
+### Simplifying Calculating the Distance
 
-```
-## How to create a project website:
+Through research, the problem of calculating the distance through the input of the ultrasound sensor has already been solved. I used a [library](https://github.com/ErickSimoes/Ultrasonic) to calculate the distance. Thank you to `Erick Simoes` for making his library open source and free to use.
 
+The library lets you pass in the TRIG and ECHO pins into a type `Ultrasonic` as parameters and lets you easily have access to the distance in a few lines of code.
 
-a) Create a [project website](https://onlineacademiccommunity.uvic.ca/what-is-the-oac/). You will
-use the website to document your assignments throughout the term.
-
-b) Give the site a descriptive name so we can identify you uniquely. Do not use a generic course
-name title
-
-c) Select the “E-portfolio” option for creating your website
-
-d) Set Privacy to: Visible only to registered users of this network
-
-e) Add your team members and your TA to the website as administrators.
-
-f) If you have questions, contact for help:https://www.uvic.ca/systems/services/contact/index.php
-
-
-## Class Show-and-Tell:
-
+```C++
+Ultrasonic ultrasonic(TRIG_PIN, ECHO_PIN);
+ultrasonic.read(); // get distance
 ```
 
-a) Prepare for amaximum 3-minuteshow-and-tell for yourassignment. Thiswill be a live demobut
-keep the video as a backup in case the demo does not work. Also, prepare to answer 1-
-questions from the class and discuss your project. Every student is expected to participate in the
-Q&A.
-b) To ensure the demo session goes off smoothly, you must come to class on time and set up
-everything you need for your demo.
-```
+## Systems Design
+
+The Ultrasonic sensor interprets data towards the arduino which is then picked up by a python script and then the python script moves the slides over
+
+![slides](https://user-images.githubusercontent.com/46540226/152663117-da856560-9c4a-4ce0-9e84-45d786396be6.png)
+
+## Steps to Recreate
+
+### Installing Software Programs
+
+A number of various software programs are needed to run this project assignment
+
+- [Arduino IDE](https://www.arduino.cc/en/software)
+- [Python](https://www.python.org/downloads/)
+  - Install `PIP` packages
+    - `pip install pyautogui serial`
+
+### Connecting the Arduino to the Ultrasonic Sensor
+
+The HR-SR04 Ultrasonic Sensor has 4 pin inputs
+
+- VCC
+- TRIG
+- ECHO
+- GND
+
+To connect the Ultrasonic Sensor to the Arduino board connect the Ultrasonic Sensor pins to the following (on the Arduino board)
+
+- VCC -> 5V
+- TRIG -> D1/PIN1
+- ECHO -> D2/PIN2
+- GND -> GND
+
+### Adding Functionality and Code to the UltraSonic Sensor
+
+Inputting code to the Arduino is how we let manipulate and calculate the distance in order to advance the slides in our program.
+
+#### Creating a New file in Arduino IDE
+
+1. Open [Arduino IDE](https://www.arduino.cc/en/software)
+2. Navigate to `File` -> `New`
+3. Save the new file and rename to `hand-gesture-presentation-controller.ino`
+4. Copy and paste the following code into the newly created file
+
+   ```c++
+    #include <Ultrasonic.h>
+    const int trigger = 1;
+    const int echo = 2; 
+
+    Ultrasonic ultrasonic(trigger, echo);
+
+    void setup() {
+      Serial.begin(9600); 
+      pinMode(trigger, OUTPUT); 
+      pinMode(echo, INPUT); 
+
+    }
+
+    void loop() { 
+      int distance = ultrasonic.read();
+      Serial.print(distance);
+      if(distance < 10) {
+        // advance next slide
+        Serial.println('Next');
+      }
+    }
+   ```
+
+Since the arduino code uses an external library to calculate the distance we must first import the a library into the arduino.
+
+#### Adding an External Library to the Arduino IDE
+
+1. In the Arduino IDE navigate to `Tools` -> `Manage Libraries`
+2. Search field type `ultrasonic`
+3. Look for the library named `Ultrasonic by Erick Simões`
+4. Install!
+   > Alternatively, you can download the library [here](https://github.com/ErickSimoes/Ultrasonic/archive/master.zip) and import the ```.zip``` file into the IDE (see how to import a library [here](https://www.arduino.cc/en/Guide/Libraries#toc4)).
+
+#### Interpreting `Serial.print()` to the machine
+
+Using the code and trying to manipulate our laptop is difficult, so an easier way is to make a Python script to listen to `Serial.print()` and act accordingly.
+
+#### Creating the Python Code
+
+1. Create a new python file `python-interpreter.py` (preferabbly in same directory as previous Arduino)
+2. Copy and paste the following code
+
+   ```python
+    import serial
+    import pyautogui
+    arduino = serial.Serial('PORT', 9600)
+    def write_read(x):
+        data = arduino.readline()
+        return data
+    while True:
+        value = str(write_read(1))
+        print(value)
+        if 'Next' in value:
+            pyautogui.hotkey('right')
+   ```
+
+> NOTE: On line 3 `arduino = serial.Serial(PORT, 9600)` replace `PORT` with a your Arduino PORT. To find your Arduino PORT open the Arudino IDE and plug your board in and your PORT should be located at the bottom right.
+> ![PORT](https://user-images.githubusercontent.com/46540226/152662266-0b039b32-97b2-45b9-9967-fb5555544ab4.png)
+
+### Running Everything Together
+
+We setup everything, now it is the time to run everything together!
+
+1. Plug in the Arduino to your laptop and tape the Ultrasonic Sensor to the top of your laptop
+2. Upload the Arduino Script to your board using the Arduino IDE
+   - Click the little right arrow at the top of the Arudino IDE and make sure you have selected your correct Arduino board and PORT
+3. Run the python script by using `python python-interpreter.py`
+4. Navigate to your slides!
+5. Start presenting
+
+Everytime you put your hand up or get close to the ultrasensor, the sensor should move the the next slide!
+  
+## To The Future And Beyond
+
+A simple way to add more functionality and build upon my design would be to add a second Ultrasonic Sensor.
+
+![Ultrasonic Spec Diagram](https://user-images.githubusercontent.com/46540226/152660010-59a5cff7-a5ac-47be-8f8b-1388808571ad.png)
+
+The use of two Ultrasonic sensors would enable back and forth mechanisms using a `Sliding motion`
+By moving your hand left to right it would advance to the next slide by the Ultrasonic sensor detecting close motion from the left sensor and then also picking it up through the right sensor. This would enable also swiping from right to left to progress to the previous slide.
+
+![Ultrasonic Diagram](https://user-images.githubusercontent.com/46540226/152660475-2fe39984-bbfa-463b-bbf6-87094a7e41b0.png)
+
+Aesthetically, multiple Ultrasonic Sensor would be built into the top of a laptops screen to detect motion which can be used for more than just detecting hand gestures to advance a slide.
+
+![Laptop Design](https://user-images.githubusercontent.com/46540226/152663122-ac4aa18a-5a2f-4755-883f-9572e6d27473.png)
