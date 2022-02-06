@@ -11,6 +11,7 @@ This hand gesture controller, measured using ultrasonic, is an alternative input
     - [How the Ultrasonic Sensor works](#how-the-ultrasonic-sensor-works)
       - [Formula for distance in cm](#formula-for-distance-in-cm)
     - [Simplifying Calculating the Distance](#simplifying-calculating-the-distance)
+  - [Systems Design](#systems-design)
   - [Steps to Recreate](#steps-to-recreate)
     - [Installing Software Programs](#installing-software-programs)
     - [Connecting the Arduino to the Ultrasonic Sensor](#connecting-the-arduino-to-the-ultrasonic-sensor)
@@ -74,6 +75,12 @@ The library lets you pass in the TRIG and ECHO pins into a type `Ultrasonic` as 
 Ultrasonic ultrasonic(TRIG_PIN, ECHO_PIN);
 ultrasonic.read(); // get distance
 ```
+
+## Systems Design
+
+The Ultrasonic sensor interprets data towards the arduino which is then picked up by a python script and then the python script moves the slides over
+
+![slides](https://user-images.githubusercontent.com/46540226/152663117-da856560-9c4a-4ce0-9e84-45d786396be6.png)
 
 ## Steps to Recreate
 
@@ -198,3 +205,5 @@ By moving your hand left to right it would advance to the next slide by the Ultr
 ![Ultrasonic Diagram](https://user-images.githubusercontent.com/46540226/152660475-2fe39984-bbfa-463b-bbf6-87094a7e41b0.png)
 
 Aesthetically, multiple Ultrasonic Sensor would be built into the top of a laptops screen to detect motion which can be used for more than just detecting hand gestures to advance a slide.
+
+![Laptop Design](https://user-images.githubusercontent.com/46540226/152663122-ac4aa18a-5a2f-4755-883f-9572e6d27473.png)
