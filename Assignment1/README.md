@@ -1,10 +1,10 @@
 # Hand Gesture Presentation Controller
 
-This hand gesture controller, measured using ultrasonic, is an alternative input gesture that helps keep the presenter inflow and smoothly transition from slide to slide without having to look down at a keyboard.
+This hand gesture controller, measured using ultrasonic, is an alternative input gesture that helps keep the presenter inflow and smoothly pause a video without having to look down at a keyboard.
 
 - [Hand Gesture Presentation Controller](#hand-gesture-presentation-controller)
   - [Problem](#problem)
-    - [Flow State](#flow-state)
+    - [Alternatives](#alternatives)
   - [Motivation](#motivation)
   - [Design](#design)
     - [Materials used](#materials-used)
@@ -25,23 +25,27 @@ This hand gesture controller, measured using ultrasonic, is an alternative input
 
 ## Problem
 
-The problem the `Hand Gesture Presentation Controller` is trying to solve is to help aid in the struggles of public speaking and help keep presentations flowing. Public speaking is well known to be one of the biggest fears for people throughout the world. Many presenters use the keyboard to advance through slides and using the keyboard can break the flow of a presenter. Though the clicker solves the problem of breaking the immersive flow state of the presenter, when people present, they often do not have the clicker, especially students in many universities. People end up using their keyboard and fumble on the keys for a split second; thus breaking their concentration.
+I'm lazy and when I am relaxing trying to watch a video, I hate fumbling around with the keyboard/remote to adjust the volume and try to control/stop playing a video. Some technology has been created to control the TV through hand gestures. Some alternatives do exist however are cumbersome to use and are not adopted by mainstream media yet. For example, Samsung's implementation lacks quick functionality with using the hand gestures only to control a cursor in order to change the volume and channel. A quick swiping motion or pausing motion would be quick and easy for the user to control.
 
-### Flow State
+### Alternatives
 
-The flow state is a "mental state in which a person performing some activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity." [(Wikipedia)](https://en.wikipedia.org/wiki/Flow_(psychology)) The flow state can happen through activities such as work, writing an exam, and presenting. If you would like to learn more about the flow state, I would recommend reading [Flow: The Psychology of Optimal Experience](https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202) on the Psychology of Flow.
+Some alternatives I have found to TV hand gestures are
+
+- [Samsung TV](https://www.youtube.com/watch?v=xHFXE6R60VE)
+- [One Cue](https://www.onecue.de/) (Seems to have discountined)
+- [Paper published in 1994 about tv controlling hand gestures](https://www.merl.com/publications/docs/TR94-24.pdf)
+
+The Samsung TV seems to have been able to implement it though it has been rarely used and somewhat cumbersome. Users have to control a cursor and really only supports changing channels and volumes.
 
 ## Motivation
 
-The motivation for this project was experiencing the challenges of presenting myself in front of an audience. I find it scary to present in front of an audience, and having everything "work" as intended is vital to a successful presentation to keep my focus.
+The motivation for this project was experiencing losing the TV remote when watching TV and when sitting back in my chair watching a video, having to sit up and press pause on my laptop can be annoying. Netflix has an auto-play the next episode so trying to find the remote before the next episode plays is a frantic endeavor and encourages binging episodes when people don't want to.
 
-Throughout, my degree and having to do multiple presentations, I have witnessed many people stumble and break concentration over even the littlest things that can interrupt their presentations. The act of looking down at the keyboard and looking for the arrow keys (instead of using the spacebar) breaks my concentration and makes me lose my train of thought for a couple of seconds.
-
-Some people present without the ability to switch slides because they, unfortunately, do not have fingers. Seeing some people without fingers presenting and struggling to switch slides, broke my heart and being able to make an alternative and helping them overcome one of the most feared obstacles in life is also a motivation behind doing this project.
+This project also will help people without fingers to be able to control their laptop video player without being able to awkwardly trying to hit the keyboard.
 
 ## Design
 
-The initial design is simple and uses one ultrasonic sensor and senses if an object is `< 10cm` away then it will advance the next slide. The prototype has the only simple function of advancing the next slide.
+The initial design is simple and uses one ultrasonic sensor and senses if an object is `< 10cm` away then it will pause a video. The prototype has the only simple function of pausing a video.
 
 ### Materials used
 
@@ -79,9 +83,9 @@ ultrasonic.read(); // get distance
 
 ## Systems Design
 
-The Ultrasonic sensor interprets data towards the arduino which is then picked up by a python script and then the python script moves the slides over
+The Ultrasonic sensor interprets data towards the arduino which is then picked up by a python script and then the python script pauses the video
 
-![slides](https://user-images.githubusercontent.com/46540226/152663117-da856560-9c4a-4ce0-9e84-45d786396be6.png)
+![Video](https://user-images.githubusercontent.com/46540226/152705219-4f18fba5-f758-4098-ae7a-d255bf9a423b.png)
 
 ## Steps to Recreate
 
@@ -112,7 +116,7 @@ To connect the Ultrasonic Sensor to the Arduino board connect the Ultrasonic Sen
 
 ### Adding Functionality and Code to the UltraSonic Sensor
 
-Inputting code to the Arduino is how we let manipulate and calculate the distance in order to advance the slides in our program.
+Inputting code to the Arduino is how we let manipulate and calculate the distance in order to pause a video in our program.
 
 #### Creating a New file in Arduino IDE
 
@@ -139,7 +143,7 @@ Inputting code to the Arduino is how we let manipulate and calculate the distanc
       int distance = ultrasonic.read();
       Serial.print(distance);
       if(distance < 10) {
-        // advance next slide
+        // 
         Serial.println('Next');
       }
     }
@@ -189,10 +193,10 @@ We setup everything, now it is the time to run everything together!
 2. Upload the Arduino Script to your board using the Arduino IDE
    - Click the little right arrow at the top of the Arudino IDE and make sure you have selected your correct Arduino board and PORT
 3. Run the python script by using `python python-interpreter.py`
-4. Navigate to your slides!
-5. Start presenting
+4. Navigate to your video!
+5. Watch the video and move your hand close to the sensor to pause the video
 
-Everytime you put your hand up or get close to the ultrasensor, the sensor should move the the next slide!
+Everytime you put your hand up or get close to the ultrasensor, the sensor should pause the video.
   
 ## To The Future And Beyond
 
@@ -201,10 +205,10 @@ A simple way to add more functionality and build upon my design would be to add 
 ![Ultrasonic Spec Diagram](https://user-images.githubusercontent.com/46540226/152660010-59a5cff7-a5ac-47be-8f8b-1388808571ad.png)
 
 The use of two Ultrasonic sensors would enable back and forth mechanisms using a `Sliding motion`
-By moving your hand left to right it would advance to the next slide by the Ultrasonic sensor detecting close motion from the left sensor and then also picking it up through the right sensor. This would enable also swiping from right to left to progress to the previous slide.
+By moving your hand left to right it would be able to control multiple functions like controlling volume through the Ultrasonic sensor detecting close motion from the left sensor and then also picking it up through the right sensor.
 
 ![Ultrasonic Diagram](https://user-images.githubusercontent.com/46540226/152660475-2fe39984-bbfa-463b-bbf6-87094a7e41b0.png)
 
-Aesthetically, multiple Ultrasonic Sensor would be built into the top of a laptops screen to detect motion which can be used for more than just detecting hand gestures to advance a slide.
+Aesthetically, multiple Ultrasonic Sensor would be built into the top of a laptops screen to detect motion which can be used for more than just detecting hand gestures.
 
 ![Laptop Design](https://user-images.githubusercontent.com/46540226/152663122-ac4aa18a-5a2f-4755-883f-9572e6d27473.png)
