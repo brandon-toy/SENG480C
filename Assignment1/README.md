@@ -1,8 +1,7 @@
 # Hand Gesture Presentation Controller
 
-[![Demo](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/LxQ5vnWXavE)
+[![Demo](https://img.youtube.com/vi/LxQ5vnWXavE/0.jpg)](https://youtu.be/LxQ5vnWXavE)
 
-![Demo](https://youtu.be/LxQ5vnWXavE)
 This hand gesture controller, measured using ultrasonic, is an alternative input gesture that helps control videos without the use of a keyboard or mouse.
 
 - [Hand Gesture Presentation Controller](#hand-gesture-presentation-controller)
