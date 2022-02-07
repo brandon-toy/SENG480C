@@ -1,6 +1,6 @@
 import serial
 import pyautogui
-arduino = serial.Serial('/dev/cu.usbmodem1101', 9600)
+arduino = serial.Serial('/dev/cu.usbmodem2101', 9600)
 def write_read(x):
     data = arduino.readline()
     return data

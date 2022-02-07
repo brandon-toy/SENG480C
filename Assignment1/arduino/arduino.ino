@@ -13,7 +13,7 @@ void setup() {
 
 void loop() { 
   int distance = ultrasonic.read();
-  if(distance < 30) {
+  if(distance < 15) {
     Serial.println("Pause");
     delay(200);
   }

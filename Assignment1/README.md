@@ -1,6 +1,6 @@
 # Hand Gesture Presentation Controller
 
-[![Demo](https://img.youtube.com/vi/LxQ5vnWXavE/0.jpg)](https://youtu.be/LxQ5vnWXavE)
+![Demo](https://user-images.githubusercontent.com/46540226/152719119-6422cb58-f988-41cb-aa8f-a611da86f245.gif)
 
 This hand gesture controller, measured using ultrasonic, is an alternative input gesture that helps control videos without the use of a keyboard or mouse.
 
@@ -24,6 +24,7 @@ This hand gesture controller, measured using ultrasonic, is an alternative input
       - [Creating the Python Code](#creating-the-python-code)
     - [Running Everything Together](#running-everything-together)
   - [To The Future And Beyond](#to-the-future-and-beyond)
+    - [Alternatives to Ultrasonic sensor?](#alternatives-to-ultrasonic-sensor)
 
 ## Problem
 
@@ -214,3 +215,9 @@ Aesthetically, multiple Ultrasonic Sensors would be built into the top of a lapt
 ![Laptop Design](https://user-images.githubusercontent.com/46540226/152663122-ac4aa18a-5a2f-4755-883f-9572e6d27473.png)
 
 The field of hand gesture controlling TVs is a progressivly growing field. Many [patents](https://patents.google.com/patent/US20120069168) and [papers](https://e-tarjome.com/storage/panel/fileuploads/2019-11-24/1574584890_E14026-e-tarjome.pdf) have been made on how to solve the issue.
+
+[This](https://ieeexplore.ieee.org/document/8792172) paper suggests use of ultrasonic sensors on smartphones and conducts a survey on ultrasonic sensors based on multiple academic papers. "Currently, a host of studies and applications for hand recognition based on acoustic signal of smartphone have emerged." Based on this paper, it would theoretically possible to use an ultrasonic sensor to calculate specific hand gestures.
+
+### Alternatives to Ultrasonic sensor?
+
+[This paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8321080/) details a review of the existing capture of numerous hand gestures using facecams and complicated algorithms. It has no mention of using ultrasonic sensors and details broad AI algorithms and glove hand tracking. Overall this field of tracking hand gestures is a growing field with numerous pros and cons towards using Ultrasonic sensors, using an advanced AI algorithm, hand tracking glove, or both.
