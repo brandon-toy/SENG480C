@@ -8,4 +8,4 @@ while True:
     value = str(write_read(1))
     print(value)
     if 'Pause' in value:
-        pyautogui.hotkey('right')
+        pyautogui.hotkey('space')

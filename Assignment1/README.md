@@ -1,6 +1,6 @@
 # Hand Gesture Presentation Controller
 
-This hand gesture controller, measured using ultrasonic, is an alternative input gesture that helps keep the presenter inflow and smoothly pause a video without having to look down at a keyboard.
+This hand gesture controller, measured using ultrasonic, is an alternative input gesture that helps control videos without the use of a keyboard or mouse.
 
 - [Hand Gesture Presentation Controller](#hand-gesture-presentation-controller)
   - [Problem](#problem)
@@ -25,7 +25,7 @@ This hand gesture controller, measured using ultrasonic, is an alternative input
 
 ## Problem
 
-I'm lazy and when I am relaxing trying to watch a video, I hate fumbling around with the keyboard/remote to adjust the volume and try to control/stop playing a video. Some technology has been created to control the TV through hand gestures. Some alternatives do exist however are cumbersome to use and are not adopted by mainstream media yet. For example, Samsung's implementation lacks quick functionality with using the hand gestures only to control a cursor in order to change the volume and channel. A quick swiping motion or pausing motion would be quick and easy for the user to control.
+I'm lazy and when I am relaxing trying to watch a video, I hate fumbling around with the keyboard/remote to adjust the volume and try to control/stop playing a video. Various technology has been created to control the TV through hand gestures, and some alternatives do exist, however, they are cumbersome to use and are not adopted by mainstream media yet. For example, Samsung's implementation lacks quick functionality with using hand gestures only to control a cursor to change the volume and channels. A quick swiping motion or pausing motion would be quicker and easier for users to control.
 
 ### Alternatives
 
@@ -35,17 +35,17 @@ Some alternatives I have found to TV hand gestures are
 - [One Cue](https://www.onecue.de/) (Seems to have discountined)
 - [Paper published in 1994 about tv controlling hand gestures](https://www.merl.com/publications/docs/TR94-24.pdf)
 
-The Samsung TV seems to have been able to implement it though it has been rarely used and somewhat cumbersome. Users have to control a cursor and really only supports changing channels and volumes.
+The Samsung TV seems to have been able to implement hand gestures, though it is rarely used and somewhat cumbersome. Users have to control a cursor and only support changing channels and volumes.
 
 ## Motivation
 
-The motivation for this project was experiencing losing the TV remote when watching TV and when sitting back in my chair watching a video, having to sit up and press pause on my laptop can be annoying. Netflix has an auto-play the next episode so trying to find the remote before the next episode plays is a frantic endeavor and encourages binging episodes when people don't want to.
+The motivation for this project was experiencing losing the TV remote when watching TV. When sitting back in my chair watching a video, I have to sit up and press pause on my laptop which I have to look for and find which can be annoying. Also, Netflix has an auto-play the next episode so trying to find the remote before the next episode plays is a frantic endeavour and encourages binging episodes when people don't want to.
 
-This project also will help people without fingers to be able to control their laptop video player without being able to awkwardly trying to hit the keyboard.
+This project also will help people without fingers to be able to control their laptop video player without being able to awkwardly try to hit the keyboard.
 
 ## Design
 
-The initial design is simple and uses one ultrasonic sensor and senses if an object is `< 10cm` away then it will pause a video. The prototype has the only simple function of pausing a video.
+The initial design is simple and uses one ultrasonic sensor and senses if an object is `< 30cm` away then it will pause a video. The prototype has the only simple function of pausing a video.
 
 ### Materials used
 
@@ -72,7 +72,7 @@ Distance = Width of Echo Pulse/58 = Time/58
 
 ### Simplifying Calculating the Distance
 
-Through research, the problem of calculating the distance through the input of the ultrasound sensor has already been solved. I used a [library](https://github.com/ErickSimoes/Ultrasonic) to calculate the distance. Thank you to `Erick Simoes` for making his library open source and free to use.
+Through doing some research, the problem of calculating the distance through the input of the ultrasound sensor has already been solved. I used a [library](https://github.com/ErickSimoes/Ultrasonic) to calculate the distance. Thank you to `Erick Simoes` for making his library open source and free to use.
 
 The library lets you pass in the TRIG and ECHO pins into a type `Ultrasonic` as parameters and lets you easily have access to the distance in a few lines of code.
 
@@ -83,7 +83,7 @@ ultrasonic.read(); // get distance
 
 ## Systems Design
 
-The Ultrasonic sensor interprets data towards the arduino which is then picked up by a python script and then the python script pauses the video
+The Ultrasonic sensor interprets data towards the Arduino which is then picked up by a python script and then the python script pauses the video
 
 ![Video](https://user-images.githubusercontent.com/46540226/152705219-4f18fba5-f758-4098-ae7a-d255bf9a423b.png)
 
@@ -91,7 +91,7 @@ The Ultrasonic sensor interprets data towards the arduino which is then picked u
 
 ### Installing Software Programs
 
-A number of various software programs are needed to run this project assignment
+Several various software programs are needed to run this project assignment
 
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Python](https://www.python.org/downloads/)
@@ -116,13 +116,13 @@ To connect the Ultrasonic Sensor to the Arduino board connect the Ultrasonic Sen
 
 ### Adding Functionality and Code to the UltraSonic Sensor
 
-Inputting code to the Arduino is how we let manipulate and calculate the distance in order to pause a video in our program.
+Inputting code to the Arduino is how we let manipulate and calculate the distance to pause a video in our program.
 
 #### Creating a New file in Arduino IDE
 
 1. Open [Arduino IDE](https://www.arduino.cc/en/software)
 2. Navigate to `File` -> `New`
-3. Save the new file and rename to `hand-gesture-presentation-controller.ino`
+3. Save the new file and rename it to `hand-gesture-presentation-controller.ino`
 4. Copy and paste the following code into the newly created file
 
    ```c++
@@ -141,14 +141,13 @@ Inputting code to the Arduino is how we let manipulate and calculate the distanc
 
     void loop() { 
       int distance = ultrasonic.read();
-      Serial.print(distance);
-      if(distance < 10) {
+      if(distance < 30) {
         Serial.println('Pause');
       }
     }
    ```
 
-Since the arduino code uses an external library to calculate the distance we must first import the a library into the arduino.
+Since the Arduino code uses an external library to calculate the distance we must first import a library into the Arduino.
 
 #### Adding an External Library to the Arduino IDE
 
@@ -164,7 +163,7 @@ Using the code and trying to manipulate our laptop is difficult, so an easier wa
 
 #### Creating the Python Code
 
-1. Create a new python file `python-interpreter.py` (preferabbly in same directory as previous Arduino)
+1. Create a new python file `python-interpreter.py` (preferably in the same directory as the previous Arduino)
 2. Copy and paste the following code
 
    ```python
@@ -178,24 +177,24 @@ Using the code and trying to manipulate our laptop is difficult, so an easier wa
         value = str(write_read(1))
         print(value)
         if 'Pause' in value:
-            pyautogui.hotkey('spacebar')
+            pyautogui.hotkey('space')
    ```
 
-> NOTE: On line 3 `arduino = serial.Serial(PORT, 9600)` replace `PORT` with a your Arduino PORT. To find your Arduino PORT open the Arudino IDE and plug your board in and your PORT should be located at the bottom right.
+> NOTE: On line 3 `Arduino = serial.Serial(PORT, 9600)` replace `PORT` with your Arduino PORT. To find your Arduino PORT open the Arduino IDE and plug your board in and your PORT should be located at the bottom right.
 > ![PORT](https://user-images.githubusercontent.com/46540226/152662266-0b039b32-97b2-45b9-9967-fb5555544ab4.png)
 
 ### Running Everything Together
 
-We setup everything, now it is the time to run everything together!
+We set up everything, now it is the time to run everything together!
 
 1. Plug in the Arduino to your laptop and tape the Ultrasonic Sensor to the top of your laptop
 2. Upload the Arduino Script to your board using the Arduino IDE
-   - Click the little right arrow at the top of the Arudino IDE and make sure you have selected your correct Arduino board and PORT
+   - Click the little right arrow at the top of the Arduino IDE and make sure you have selected your correct Arduino board and PORT
 3. Run the python script by using `python python-interpreter.py`
 4. Navigate to your video!
 5. Watch the video and move your hand close to the sensor to pause the video
 
-Everytime you put your hand up or get close to the ultrasensor, the sensor should pause the video.
+Every time you put your hand up or get close to the Ultrasonic sensor, the sensor should pause the video.
   
 ## To The Future And Beyond
 
@@ -208,6 +207,8 @@ By moving your hand left to right it would be able to control multiple functions
 
 ![Ultrasonic Diagram](https://user-images.githubusercontent.com/46540226/152660475-2fe39984-bbfa-463b-bbf6-87094a7e41b0.png)
 
-Aesthetically, multiple Ultrasonic Sensor would be built into the top of a laptops screen to detect motion which can be used for more than just detecting hand gestures.
+Aesthetically, multiple Ultrasonic Sensors would be built into the top of a laptop's screen to detect motion which can be used for more than just detecting hand gestures.
 
 ![Laptop Design](https://user-images.githubusercontent.com/46540226/152663122-ac4aa18a-5a2f-4755-883f-9572e6d27473.png)
+
+The field of hand gesture controlling TVs is a progressivly growing field. Many [patents](https://patents.google.com/patent/US20120069168) and [papers](https://e-tarjome.com/storage/panel/fileuploads/2019-11-24/1574584890_E14026-e-tarjome.pdf) have been made on how to solve the issue.
